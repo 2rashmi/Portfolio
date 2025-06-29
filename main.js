@@ -144,7 +144,8 @@ const projectData = {
         description: "The application was developed as a project for 3rd Year 1st semester which included attractive insight on employee-friendly.",
         contribution: "NGO Management",
         technologies: ["MERN Stack", "HTML", "CSS","MongoDB"],
-        features: ["Donor registration", "Food tracking", "Location services", "Community outreach"]
+        features: ["Donor registration", "Food tracking", "Location services", "Community outreach"],
+        images: [ "src/9 (1).png", "src/9 (2).png"]
     },
     project5: {
         title: "Cooking Skill Sharing Platform",
@@ -198,6 +199,16 @@ function showProjectModal(project) {
                     <ul>
                         ${project.features.map(feature => `<li>${feature}</li>`).join('')}
                     </ul>
+                    ${project.images ? `
+                    <h4>Project Screenshots:</h4>
+                    <div class="project-images">
+                        ${project.images.map((image, index) => `
+                            <div class="project-image-container" data-image="${image}" data-index="${index}">
+                                <img src="${image}" alt="Project Screenshot" class="project-image">
+                            </div>
+                        `).join('')}
+                    </div>
+                    ` : ''}
                 </div>
             </div>
         </div>
@@ -209,6 +220,17 @@ function showProjectModal(project) {
     // Show modal
     const modal = document.getElementById('projectModal');
     modal.style.display = 'block';
+
+    // Add click event listeners to project images
+    if (project.images) {
+        document.querySelectorAll('.project-image-container').forEach(container => {
+            container.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image');
+                const imageIndex = parseInt(this.getAttribute('data-index'));
+                showImagePopup(imageSrc, project.images, imageIndex, project.title);
+            });
+        });
+    }
 
     // Close modal functionality
     const closeBtn = modal.querySelector('.close');
@@ -596,5 +618,50 @@ function closeServicesModal() {
     const modal = document.getElementById('servicesModal');
     if (modal) {
         modal.remove();
+    }
+}
+
+function showImagePopup(imageSrc, images, index, projectTitle) {
+    // Create popup HTML
+    const popupHTML = `
+        <div class="image-popup" id="imagePopup">
+            <div class="image-content">
+                <h3>${projectTitle} - Image ${index + 1}</h3>
+                <img src="${imageSrc}" alt="Project Image" class="image-popup-image">
+                <span class="close-popup">&times;</span>
+            </div>
+        </div>
+    `;
+
+    // Add popup to page
+    document.body.insertAdjacentHTML('beforeend', popupHTML);
+
+    // Show popup
+    const popup = document.getElementById('imagePopup');
+    popup.style.display = 'flex';
+
+    // Close popup functionality
+    const closeBtn = popup.querySelector('.close-popup');
+    closeBtn.addEventListener('click', closeImagePopup);
+
+    // Close popup when clicking outside
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closeImagePopup();
+        }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeImagePopup();
+        }
+    });
+}
+
+function closeImagePopup() {
+    const popup = document.getElementById('imagePopup');
+    if (popup) {
+        popup.remove();
     }
 }
