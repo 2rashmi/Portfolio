@@ -26,6 +26,12 @@ if (aboutSection) {
     observer.observe(aboutSection);
 }
 
+// Observe the Education section
+const educationSection = document.querySelector('.education');
+if (educationSection) {
+    observer.observe(educationSection);
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
