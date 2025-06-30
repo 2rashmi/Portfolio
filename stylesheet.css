@@ -696,6 +696,41 @@ section{
     animation: animate 1s ease forwards;
     animation-delay: 2.5s;
 }
+.progress-line.java span{
+    width: 85%;
+    animation: animate 1s ease forwards;
+    animation-delay: 3s;
+}
+.progress-line.sql span{
+    width: 75%;
+    animation: animate 1s ease forwards;
+    animation-delay: 3.5s;
+}
+.progress-line.php span{
+    width: 70%;
+    animation: animate 1s ease forwards;
+    animation-delay: 4s;
+}
+.progress-line.kotlin span{
+    width: 80%;
+    animation: animate 1s ease forwards;
+    animation-delay: 4.5s;
+}
+.progress-line.c span{
+    width: 70%;
+    animation: animate 1s ease forwards;
+    animation-delay: 5s;
+}
+.progress-line.cpp span{
+    width: 75%;
+    animation: animate 1s ease forwards;
+    animation-delay: 5.5s;
+}
+.progress-line.r span{
+    width: 60%;
+    animation: animate 1s ease forwards;
+    animation-delay: 6s;
+}
 .progress-line span::after{
     position: absolute;
     padding: 1px 8px;
@@ -723,6 +758,27 @@ section{
 }
 .progress-line.react span::after{
     content: "65%";
+}
+.progress-line.java span::after{
+    content: "85%";
+}
+.progress-line.sql span::after{
+    content: "75%";
+}
+.progress-line.php span::after{
+    content: "70%";
+}
+.progress-line.kotlin span::after{
+    content: "80%";
+}
+.progress-line.c span::after{
+    content: "70%";
+}
+.progress-line.cpp span::after{
+    content: "75%";
+}
+.progress-line.r span::after{
+    content: "60%";
 }
 .progress-line span::before{
     content: "";
@@ -3029,6 +3085,247 @@ section{
     50% { 
         opacity: 1;
         transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Tools & Technologies Section */
+.tools-section {
+    margin-left: auto;
+    width: 45%;
+    margin-top: -60rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.tool-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.tool-item:hover::before {
+    left: 100%;
+}
+
+.tool-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 238, 255, 0.3);
+    border-color: #0ef;
+}
+
+.tool-item i {
+    font-size: 3rem;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.tool-item:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+/* Tooltip popup for tool items */
+.tool-item {
+    position: relative !important;
+}
+
+.tool-item::after {
+    content: attr(title) !important;
+    position: absolute !important;
+    bottom: -40px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: linear-gradient(135deg, #0ef, #00bcd4) !important;
+    color: #000 !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    z-index: 9999 !important;
+    box-shadow: 0 8px 25px rgba(0, 238, 255, 0.3) !important;
+    border: 2px solid rgba(0, 238, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    letter-spacing: 0.5px !important;
+    pointer-events: none !important;
+}
+
+.tool-item::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border: 8px solid transparent !important;
+    border-top-color: #0ef !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    z-index: 9999 !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 238, 255, 0.3)) !important;
+    pointer-events: none !important;
+}
+
+.tool-item:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    bottom: -50px !important;
+    transform: translateX(-50%) scale(1.05) !important;
+    box-shadow: 0 12px 35px rgba(0, 238, 255, 0.4) !important;
+}
+
+.tool-item:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    bottom: -25px !important;
+    transform: translateX(-50%) scale(1.1) !important;
+}
+
+/* Responsive design for tools grid */
+@media (max-width: 768px) {
+    .tools-section {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .tool-item {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .tool-item i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .tool-item {
+        padding: 1rem 0.5rem;
+    }
+    
+    .tool-item i {
+        font-size: 2rem;
+    }
+}
+
+/* Tool Title Popup */
+.tool-title-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.tool-title-content {
+    background: linear-gradient(135deg, #0ef, #00bcd4);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 238, 255, 0.4);
+    border: 2px solid rgba(0, 238, 255, 0.3);
+    animation: slideIn 0.4s ease;
+    min-width: 200px;
+}
+
+.tool-title-content h3 {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+.close-popup {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+    transition: all 0.3s ease;
+}
+
+.close-popup:hover {
+    background: #ff3742;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.5) translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
     }
 }
 
