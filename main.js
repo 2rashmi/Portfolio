@@ -508,6 +508,26 @@ const servicesData = {
             "Comprehensive testing and deployment",
             "End-to-end project ownership"
         ]
+    },
+    qa: {
+        title: "Quality Assurance",
+        description: "Comprehensive testing and quality assurance services to ensure your applications are reliable, secure, and meet the highest standards of user experience.",
+        details: [
+            "Manual Testing & Test Case Design",
+            "Automated Testing Implementation",
+            "Performance & Load Testing",
+            "Security Testing & Vulnerability Assessment",
+            "User Acceptance Testing (UAT)",
+            "Cross-browser & Cross-platform Testing"
+        ],
+        tools: ["Selenium", "Postman"],
+        benefits: [
+            "Bug-free and reliable applications",
+            "Improved user experience and satisfaction",
+            "Reduced maintenance costs",
+            "Enhanced security and performance",
+            "Faster time to market with confidence"
+        ]
     }
 };
 
@@ -538,6 +558,22 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Total service buttons found:', serviceButtons.length);
     serviceButtons.forEach((btn, index) => {
         console.log(`Button ${index + 1}:`, btn.getAttribute('data-service'));
+    });
+
+    // Add click event listeners to tool items
+    const toolItems = document.querySelectorAll('.tool-item');
+    
+    toolItems.forEach(tool => {
+        tool.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const toolTitle = this.getAttribute('title');
+            console.log('Tool clicked:', toolTitle);
+            
+            // Show tool title popup
+            showToolTitlePopup(toolTitle);
+        });
     });
 });
 
@@ -661,6 +697,50 @@ function showImagePopup(imageSrc, images, index, projectTitle) {
 
 function closeImagePopup() {
     const popup = document.getElementById('imagePopup');
+    if (popup) {
+        popup.remove();
+    }
+}
+
+function showToolTitlePopup(toolTitle) {
+    // Create popup HTML
+    const popupHTML = `
+        <div class="tool-title-popup" id="toolTitlePopup">
+            <div class="tool-title-content">
+                <h3>${toolTitle}</h3>
+                <span class="close-popup">&times;</span>
+            </div>
+        </div>
+    `;
+
+    // Add popup to page
+    document.body.insertAdjacentHTML('beforeend', popupHTML);
+
+    // Show popup
+    const popup = document.getElementById('toolTitlePopup');
+    popup.style.display = 'flex';
+
+    // Close popup functionality
+    const closeBtn = popup.querySelector('.close-popup');
+    closeBtn.addEventListener('click', closeToolTitlePopup);
+
+    // Close popup when clicking outside
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closeToolTitlePopup();
+        }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeToolTitlePopup();
+        }
+    });
+}
+
+function closeToolTitlePopup() {
+    const popup = document.getElementById('toolTitlePopup');
     if (popup) {
         popup.remove();
     }
