@@ -1,9 +1,9 @@
 var typed = new Typed(".text", {
-   strings: ["Frontend Developer", "Web Developer","Full-Stack Developer"],
-   typeSpeed: 100,
-   backSpeed: 100,
-   backDelay: 1000,
-   loop: true
+    strings: ["Frontend Developer", "Web Developer", "Full-Stack Developer"],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 1000,
+    loop: true
 });
 
 // Scroll animations for About Me section
@@ -47,7 +47,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Top arrow scroll to top functionality
-document.querySelector('.top').addEventListener('click', function(e) {
+document.querySelector('.top').addEventListener('click', function (e) {
     e.preventDefault();
     // Check if the clicked element is the plus icon
     if (e.target.classList.contains('bx-plus')) {
@@ -95,14 +95,14 @@ function showDownloadPopup() {
     closeBtn.addEventListener('click', closeDownloadPopup);
 
     // Close popup when clicking outside
-    popup.addEventListener('click', function(e) {
+    popup.addEventListener('click', function (e) {
         if (e.target === popup) {
             closeDownloadPopup();
         }
     });
 
     // Close popup with Escape key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeDownloadPopup();
         }
@@ -120,39 +120,39 @@ function closeDownloadPopup() {
 const projectData = {
     project1: {
         title: " Online Musical Instrument, Accessories and Equipment Store System",
-        description: "The application was developed as a project for 1st Year 2nd semester which included attractive insight on employee-friendly interface design.",
-        contribution: "Seller Management",
+        description: " Developed as a group project in the 1st Year 2nd Semester, this web-based platform enables customers to browse, order, and manage both brand-new and used musical instruments and accessories. The system also allows users to place custom orders based on their preferences, enhancing personalization and customer satisfaction. Designed with an employee-friendly interface for easy product and order management.",
+        contribution: "Designed and implemented the Seller Management Module, allowing sellers to register, manage product listings (new/used), update inventory",
         technologies: ["JavaScript", "PHP", "HTML", "CSS", "MySQL"],
         features: ["User-friendly interface", "Responsive design", "Database integration", "Admin panel"]
     },
     project2: {
         title: "Online Grocery Ordering System",
-        description: "The application was developed as a project for 2nd Year 1st semester which included attractive insight on employee-friendly.",
-        contribution: "Review and feedback ",
+        description: " A web-based grocery shopping platform developed as a group project during the 2nd Year 1st Semester. The system enables customers to register and log in, browse and order groceries online, and submit product reviews and feedback. Designed with an  employee-friendly backend to efficiently manage orders, users, and inventory..",
+        contribution: "Developed the Review and Feedback Module, allowing registered users to rate products and leave feedback after purchases.",
         technologies: ["Java", "JavaScript", "HTML", "CSS"],
         features: ["User-Friendly Interface", "Basic User authentication", "Order Placement & Confirmation", "Admin/Employee Panel"]
     },
     project3: {
         title: " Lanka Glass Store System",
-        description: "Developed as a 2nd Year 2nd Semester project, this system manages glass product sales and operations with a focus on improving employee efficiency and user experience.", 
+        description: " Developed as a 2nd Year 2nd Semester project, this is a comprehensive web-based platform designed to digitize and automate operations in glass product businesses. Features include employee and customer management, inventory tracking, order processing, billing, delivery status updates, and supplier coordination. Built using the MERN stack, the system offers a user friendly interface with real-time functionality, task assignments, and secure access for employees, managers, and customers—ensuring efficient and seamless business operations.",
         contribution: "Delivery Management",
-        technologies: ["MERN Stack", "HTML", "CSS","MongoDB"],
-        features: ["Product Catalog Management", "Sales Management", "Customer Management", "Delivery Management","Employee Dashboard","Inventory Management","Reports & Analytics","Responsive User Interface","Secure Backend Integration"]
+        technologies: ["MERN Stack", "HTML", "CSS", "MongoDB"],
+        features: ["Product Catalog Management", "Sales Management", "Customer Management", "Delivery Management", "Employee Dashboard", "Inventory Management", "Reports & Analytics", "Responsive User Interface", "Secure Backend Integration"]
     },
     project4: {
         title: "Online Food Donation System",
-        description: "The application was developed as a project for 3rd Year 1st semester which included attractive insight on employee-friendly.",
+        description: " The application was developed as a project for 3rd Year 1st semester, Online Food Donation System is a web application that connects donors, NGOs, and delivery personnel to streamline food donations.It facilitates donor registrations, food submissions, NGO claims, delivery tracking, and real- time reporting to ensure efficient food distribution and minimize waste.",
         contribution: "NGO Management",
-        technologies: ["MERN Stack", "HTML", "CSS","MongoDB"],
+        technologies: ["MERN Stack", "HTML", "CSS", "MongoDB"],
         features: ["Donor registration", "Food tracking", "Location services", "Community outreach"],
-        images: [ "src/9 (1).png", "src/9 (2).png"]
+        images: ["src/9 (1).png", "src/9 (2).png"]
     },
     project5: {
         title: "Cooking Skill Sharing Platform",
-        description: " Developed as a 3rd Year 1st Semester project, this web application enables users to share and learn cooking skills through interactive posts. The platform promotes a collaborative and engaging environment for culinary enthusiasts",
+        description: " Developed as a 3rd Year 1st Semester project, An interactive web platform designed for learning and sharing culinary skills. Features include recipe sharing, progress tracking, structured learning plans, real-time user interactions, and secure authentication using OAuth 2.0. Built with a user-friendly interface to support a vibrant community of aspiring chefs and home cooks.",
         contribution: "Implemented the skill-sharing post functionality,allowing users to create, manage, and interact with cooking-related content",
         technologies: ["Java(Spring Boot)", "React.js", "HTML", "CSS"],
-        features: ["OAuth 2.0 Authentication Integration","Skill-Sharing Post System", "Interactive Community Feed", "User profiles", "Commenting & Reactions","Responsive Frontend Design","Backend with Spring Boot","Media Upload Support","Skill Discovery and Learning"]
+        features: ["OAuth 2.0 Authentication Integration", "Skill-Sharing Post System", "Interactive Community Feed", "User profiles", "Commenting & Reactions", "Responsive Frontend Design", "Backend with Spring Boot", "Media Upload Support", "Skill Discovery and Learning"]
     },
     project8: {
         title: "Task App",
@@ -164,7 +164,7 @@ const projectData = {
 
 // Add click event listeners to project links
 document.querySelectorAll('.layer a').forEach((link, index) => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
         // Map the index to the correct project key
         const projectKeys = ['project1', 'project2', 'project3', 'project4', 'project5', 'project8'];
@@ -224,7 +224,7 @@ function showProjectModal(project) {
     // Add click event listeners to project images
     if (project.images) {
         document.querySelectorAll('.project-image-container').forEach(container => {
-            container.addEventListener('click', function() {
+            container.addEventListener('click', function () {
                 const imageSrc = this.getAttribute('data-image');
                 const imageIndex = parseInt(this.getAttribute('data-index'));
                 showImagePopup(imageSrc, project.images, imageIndex, project.title);
@@ -237,14 +237,14 @@ function showProjectModal(project) {
     closeBtn.addEventListener('click', closeModal);
 
     // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
+    modal.addEventListener('click', function (e) {
         if (e.target === modal) {
             closeModal();
         }
     });
 
     // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeModal();
         }
@@ -262,17 +262,17 @@ function closeModal() {
 const fabButton = document.getElementById('fabButton');
 const fabOptions = document.querySelector('.fab-options');
 
-fabButton.addEventListener('click', function() {
+fabButton.addEventListener('click', function () {
     fabButton.classList.toggle('active');
     fabOptions.classList.toggle('show');
 });
 
 // Handle fab option clicks
 document.querySelectorAll('.fab-option').forEach(option => {
-    option.addEventListener('click', function() {
+    option.addEventListener('click', function () {
         const tooltip = this.getAttribute('data-tooltip');
-        
-        switch(tooltip) {
+
+        switch (tooltip) {
             case 'Download Resume':
                 downloadResumePDF();
                 break;
@@ -297,7 +297,7 @@ document.querySelectorAll('.fab-option').forEach(option => {
                 }
                 break;
         }
-        
+
         // Close the menu after clicking an option
         fabButton.classList.remove('active');
         fabOptions.classList.remove('show');
@@ -305,7 +305,7 @@ document.querySelectorAll('.fab-option').forEach(option => {
 });
 
 // Close menu when clicking outside
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (!e.target.closest('.floating-action-menu')) {
         fabButton.classList.remove('active');
         fabOptions.classList.remove('show');
@@ -321,7 +321,7 @@ function downloadResumePDF() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     // Method 2: Alternative approach if first doesn't work
     setTimeout(() => {
         const link2 = document.createElement('a');
@@ -336,21 +336,21 @@ function downloadResumePDF() {
 }
 
 // Contact form submission
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+document.querySelector('.contact-form form').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     // Get form data using name attributes
     const name = this.querySelector('input[name="name"]').value;
     const email = this.querySelector('input[name="email"]').value;
     const subject = this.querySelector('input[name="subject"]').value;
     const message = this.querySelector('textarea[name="message"]').value;
-    
+
     // Validate form data
     if (!name || !email || !message) {
         alert('Please fill in all required fields (Name, Email, and Message)');
         return;
     }
-    
+
     // Create email body
     const emailBody = `
 Name: ${name}
@@ -358,16 +358,16 @@ Email: ${email}
 Subject: ${subject || 'Contact Form Submission'}
 Message: ${message}
     `;
-    
+
     // Create mailto link
     const mailtoLink = `mailto:rashmipraveesha@gmail.com?subject=${encodeURIComponent(subject || 'Contact Form Submission')}&body=${encodeURIComponent(emailBody)}`;
-    
+
     // Open default email client
     window.open(mailtoLink);
-    
+
     // Show success message
     showContactSuccess();
-    
+
     // Clear form
     this.reset();
 });
@@ -384,18 +384,18 @@ function showContactSuccess() {
             </div>
         </div>
     `;
-    
+
     // Add to page
     document.body.insertAdjacentHTML('beforeend', successHTML);
-    
+
     // Show success message
     const success = document.getElementById('contactSuccess');
     success.style.display = 'flex';
-    
+
     // Close success message
     const closeBtn = success.querySelector('.close-success');
     closeBtn.addEventListener('click', closeContactSuccess);
-    
+
     // Auto close after 5 seconds
     setTimeout(closeContactSuccess, 5000);
 }
@@ -532,18 +532,18 @@ const servicesData = {
 };
 
 // Wait for DOM to be fully loaded before adding event listeners
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Add click event listeners to service "Learn More" buttons
     const serviceButtons = document.querySelectorAll('.read[data-service]');
-    
+
     serviceButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const serviceKey = this.getAttribute('data-service');
             console.log('Button clicked - Service key:', serviceKey);
-            
+
             // Check if service data exists
             if (servicesData && servicesData[serviceKey]) {
                 console.log('Found service data for:', serviceKey);
@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     console.log('Total service buttons found:', serviceButtons.length);
     serviceButtons.forEach((btn, index) => {
         console.log(`Button ${index + 1}:`, btn.getAttribute('data-service'));
@@ -562,15 +562,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click event listeners to tool items
     const toolItems = document.querySelectorAll('.tool-item');
-    
+
     toolItems.forEach(tool => {
-        tool.addEventListener('click', function(e) {
+        tool.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const toolTitle = this.getAttribute('title');
             console.log('Tool clicked:', toolTitle);
-            
+
             // Show tool title popup
             showToolTitlePopup(toolTitle);
         });
@@ -579,13 +579,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function showServicesModal(service) {
     console.log('Showing modal for service:', service.title);
-    
+
     // Remove any existing modal first
     const existingModal = document.getElementById('servicesModal');
     if (existingModal) {
         existingModal.remove();
     }
-    
+
     // Create modal HTML with proper content
     const modalHTML = `
         <div class="services-modal" id="servicesModal">
@@ -624,7 +624,7 @@ function showServicesModal(service) {
         const modal = document.getElementById('servicesModal');
         if (modal) {
             modal.style.display = 'block';
-            
+
             // Close modal functionality
             const closeBtn = document.getElementById('servicesClose');
             if (closeBtn) {
@@ -632,14 +632,14 @@ function showServicesModal(service) {
             }
 
             // Close modal when clicking outside
-            modal.addEventListener('click', function(e) {
+            modal.addEventListener('click', function (e) {
                 if (e.target === modal) {
                     closeServicesModal();
                 }
             });
 
             // Close modal with Escape key
-            const escapeHandler = function(e) {
+            const escapeHandler = function (e) {
                 if (e.key === 'Escape') {
                     closeServicesModal();
                     document.removeEventListener('keydown', escapeHandler);
@@ -681,14 +681,14 @@ function showImagePopup(imageSrc, images, index, projectTitle) {
     closeBtn.addEventListener('click', closeImagePopup);
 
     // Close popup when clicking outside
-    popup.addEventListener('click', function(e) {
+    popup.addEventListener('click', function (e) {
         if (e.target === popup) {
             closeImagePopup();
         }
     });
 
     // Close popup with Escape key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeImagePopup();
         }
@@ -725,14 +725,14 @@ function showToolTitlePopup(toolTitle) {
     closeBtn.addEventListener('click', closeToolTitlePopup);
 
     // Close popup when clicking outside
-    popup.addEventListener('click', function(e) {
+    popup.addEventListener('click', function (e) {
         if (e.target === popup) {
             closeToolTitlePopup();
         }
     });
 
     // Close popup with Escape key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeToolTitlePopup();
         }
